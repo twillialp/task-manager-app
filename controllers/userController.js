@@ -8,7 +8,7 @@ async function getAllUsers(req, res) {
   console.log(req.user);
 
   if (!req.user) {
-    return res.status(401).json({ message: 'You must be logged in to see this!' });
+    return res.status(401).json({ message: 'Please log in' });
   }
   
   const users = await User.find({});

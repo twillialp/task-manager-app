@@ -1,5 +1,4 @@
-# Express Backend Template
-
+# Module 15 Project
 
 ## Dependencies
 
@@ -8,8 +7,6 @@
 - Dotenv
 - Morgan
 - Cors
-- Helmet
-
 
 ## Dev Dependencies
 
