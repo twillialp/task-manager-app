@@ -18,7 +18,7 @@ function ProjectsPage() {
         const res = await apiClient.get("/api/projects");
         console.log(res.data);
         setProjects(res.data);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
         setError(error.message);
       } finally {
@@ -38,7 +38,7 @@ function ProjectsPage() {
       setLoading(true);
       const res = await apiClient.post("/api/projects", { name, description });
       setProjects((prev) => [...prev, res.data]);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setError(error.message);
     } finally {
