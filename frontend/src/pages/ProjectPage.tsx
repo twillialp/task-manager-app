@@ -3,7 +3,7 @@ import { apiClient } from "../clients/api";
 import { Link } from "react-router-dom";
 import type { Project } from "../types";
 
-function ProjectsPage() {
+export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -103,5 +103,3 @@ function ProjectsPage() {
     </div>
   );
 }
-
-export default ProjectsPage;

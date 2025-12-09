@@ -3,7 +3,7 @@ import { apiClient } from "../clients/api";
 import { useParams } from "react-router-dom";
 import type { Project } from "../types/index";
 
-function ProjectDetailsPage() {
+export function ProjectDetailsPage() {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -28,20 +28,9 @@ function ProjectDetailsPage() {
     fetchProjectDetails();
   }, [projectId]);
 
+  if (loading) return <div className="text-3xl text-white">Loading...</div>;
 
-  useEffect(() => {
-    const fetchProjectTasks = async () => {
-        try {
-            const tasks = await apiClient.get(`/api/projects/${projectId}/tasks`);
-            // state
-            // loading error
-        } catch (error) {
-            console.error(error);
-            
-        }
-    }
-    // fetchProjectTasks()
-  }, [projectId])
+  if (error) return <div className="text-3xl text-white">Error loading Project</div>;
 
   return (
     <div className="text-white">
@@ -54,5 +43,3 @@ function ProjectDetailsPage() {
     </div>
   );
 }
-
-export default ProjectDetailsPage;
